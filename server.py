@@ -2,6 +2,9 @@
 import http.server, socketserver, os, random
 PORT = 8000
 
+if not os.path.exists("files"):
+	os.mkdir("files")
+
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
 	def do_POST(self):
 		content_length = int(self.headers['Content-Length'])
